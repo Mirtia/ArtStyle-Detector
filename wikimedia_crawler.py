@@ -4,6 +4,7 @@ import re
 
 import aiohttp
 import requests
+from bs4 import BeautifulSoup
 
 from crawler import Crawler
 
@@ -62,10 +63,10 @@ class WikimediaCrawler(Crawler):
 
     async def download_image(self, url, title, output_dir):
         """
-        This is an asynchronous function that downloads an image from a given URL and saves it to a
-        specified output directory.
+        This is an async function that downloads an image from a given URL and saves it to a specified
+        output directory.
         
-        :param url: The URL of the image to be downloaded
+        :param url: The URL of the webpage containing the image to be downloaded
         :param title: The title of the image file that will be saved to the output directory
         :param output_dir: The directory where the downloaded image will be saved
         """
@@ -73,7 +74,24 @@ class WikimediaCrawler(Crawler):
         async with self.sem:
             async with aiohttp.ClientSession() as aio_session:
                 try:
+
                     async with aio_session.get(url) as response:
+                        if response.status == 200:
+                            chunks = ""
+                            while True:
+                                chunk = await response.content.read(1024)
+                                if not chunk:
+                                    break
+                                else:
+                                    chunks += chunk.decode("utf-8")
+                            # print(f"Log: HTML page downloaded successfully: {output_file}")
+                            soup = BeautifulSoup(chunks, 'html.parser')
+                            image_url = soup.find("img")["src"]
+                            # print(f"Log: Image url extracted from HTML page: {image_url}")
+                        else:
+                            print(f"Error: Failed to download HTML page from {url}. Status code: {response.status}")
+
+                    async with aio_session.get(image_url) as response:
                         if response.status == 200:
                             with open(output_file, 'wb') as file:
                                 while True:
@@ -81,8 +99,9 @@ class WikimediaCrawler(Crawler):
                                     if not chunk:
                                         break
                                     file.write(chunk)
-                            print(f"Log: Image downloaded successfully: {output_file}")
+                            # print(f"Log: Image downloaded successfully: {output_file}")
                         else:
-                            print(f"Error: Failed to download image from {url}. Status code: {response.status}")
+                            print(f"Error: Failed to download image page from {image_url}. Status code: {response.status}")
+
                 except Exception as e:
-                    print(f"Error: Failed to download image from {url}. Error: {e}")
+                    print(f"Error: Failed to download HTML page from {url}. Error: {e}")
