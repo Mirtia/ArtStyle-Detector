@@ -24,7 +24,7 @@ class Crawler:
         """
         dir_path = os.path.join(dir, prefix)
         if not os.path.exists(dir_path):
-           os.makedirs(dir_path)
+           os.makedirs(dir_path, exist_ok=True)
         return dir_path
         
 
@@ -42,3 +42,5 @@ class Crawler:
             raise FileNotFoundError("Error: Input file does not exist. Please provide an existing file.")
         else:
             return file 
+
+    # Crawling time / status

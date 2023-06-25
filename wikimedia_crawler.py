@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 from crawler import Crawler
 
+
 # The WikimediaCrawler class is a Python class that crawls images from Wikimedia Commons using asyncio
 # and aiohttp libraries.
 class WikimediaCrawler(Crawler):
