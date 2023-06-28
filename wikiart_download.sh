@@ -3,7 +3,6 @@
 # These urls are provided by https://github.com/asahi417/wikiart-image-dataset @asahi417
 urls=(
     "https://github.com/asahi417/wikiart-crawler/releases/download/v0.0.0/abstract_expressionism.zip"
-    "https://github.com/asahi417/wikiart-crawler/releases/download/v0.0.0/abstract_expressionism.zip"
     "https://github.com/asahi417/wikiart-crawler/releases/download/v0.0.0/ecole_de_paris.zip"
     "https://github.com/asahi417/wikiart-crawler/releases/download/v0.0.0/expressionism.zip"
     "https://github.com/asahi417/wikiart-crawler/releases/download/v0.0.0/impressionism.zip"
