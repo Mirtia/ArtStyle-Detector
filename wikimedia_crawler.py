@@ -86,7 +86,7 @@ class WikimediaCrawler(Crawler):
                                 else:
                                     chunks += chunk.decode("utf-8")
                             # print(f"Log: HTML page downloaded successfully: {output_file}")
-                            soup = BeautifulSoup(chunks, 'html.parser')
+                            soup = BeautifulSoup(chunks, "html.parser")
                             image_url = soup.find("img")["src"]
                             # print(f"Log: Image url extracted from HTML page: {image_url}")
                         else:
@@ -94,7 +94,7 @@ class WikimediaCrawler(Crawler):
 
                     async with aio_session.get(image_url) as response:
                         if response.status == 200:
-                            with open(output_file, 'wb') as file:
+                            with open(output_file, "wb") as file:
                                 while True:
                                     chunk = await response.content.read(1024)
                                     if not chunk:
