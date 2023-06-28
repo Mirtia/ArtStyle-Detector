@@ -42,5 +42,3 @@ class Crawler:
             raise FileNotFoundError("Error: Input file does not exist. Please provide an existing file.")
         else:
             return file 
-
-    # Crawling time / status
