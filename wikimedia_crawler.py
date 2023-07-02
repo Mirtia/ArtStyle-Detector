@@ -15,8 +15,8 @@ class WikimediaCrawler(Crawler):
 
     url = "https://commons.wikimedia.org/w/api.php"
 
-    def __init__(self, output_dir, input_file, prefix):
-        super().__init__(output_dir, input_file, prefix)
+    def __init__(self, input_file, output_dir, prefix):
+        super().__init__(input_file, output_dir, prefix)
         self.session = requests.Session()
         self.read_input_file()
         self.sem = asyncio.Semaphore(10)

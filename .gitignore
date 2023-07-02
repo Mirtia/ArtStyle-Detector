@@ -4,4 +4,6 @@ output
 cx
 .vscode
 weights
+downloaded
 styles
+*.zip
