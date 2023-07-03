@@ -2,6 +2,7 @@ import os
 
 # The Crawler class checks if a directory and file exist, and creates them if they don't. 
 # It's the base class for the alternative crawlers.
+# Eventually, I will put more functionalities in this class, this is just not a class.
 class Crawler:
 
     def __init__(self, output_dir, input_file, prefix):

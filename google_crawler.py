@@ -5,10 +5,10 @@ from google_images_search import GoogleImagesSearch
 
 from crawler import Crawler
 
+# Unused
 # The GoogleCrawler class is a subclass of Crawler that uses the Google Images Search API to crawl and
 # download images based on input queries and search parameters. There is a limitation on the number of queries
 # so I ended up crawling Wikimedia Commons.
-
 class GoogleCrawler(Crawler):
 
     def __init__(self, output_dir, input_file, prefix, parameters_file):
