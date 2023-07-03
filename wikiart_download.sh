@@ -20,7 +20,7 @@ urls=(
 output_dir=$1
 mkdir -p "${output_dir}"
 
- for url in "${urls[@]}"; do
+for url in "${urls[@]}"; do
     basename=$(basename "${url}")
     curl -O -L "${url}"
     unzip "${basename}" -d "${output_dir}"
