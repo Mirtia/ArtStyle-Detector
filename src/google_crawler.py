@@ -42,11 +42,11 @@ class GoogleCrawler(Crawler):
         with open(self.input_file, mode="r", encoding="utf-8") as f:
             self.queries = f.read().split("\n")
 
-    def read_search_parameters(self, parameters_file):
+    def read_search_parameters(self, parameters_file: str):
         """
         This function reads search parameters from a JSON file and stores them in an object attribute.
         
         :param parameters_file: The file path of the JSON file containing the search parameters
         """
         with open(parameters_file, mode="r", encoding="utf-8") as f:
-            self.search_parameters = json.load(f)
+            return json.load(f)

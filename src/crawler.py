@@ -5,23 +5,25 @@ import os
 # Eventually, I will put more functionalities in this class, this is just not a class.
 class Crawler:
 
-    def __init__(self, output_dir, input_file, prefix):
+    def __init__(self, output_dir: str, input_file: str, prefix: str):
       self.output_dir = self.dir_exists(output_dir, prefix)
       self.input_file = self.file_exists(input_file)
       self.prefix = prefix
 
+    
     @staticmethod
-    def dir_exists(dir, prefix=""):
+    def dir_exists(dir: str, prefix: str="") -> str:
         """
-        This is a static method in Python that checks if a directory exists and creates it if it
-        doesn't.
+        The `dir_exists` function checks if a directory exists and creates it if it doesn't, then returns
+        the directory path.
         
-        :param dir: The directory path where the new directory will be created
-        :param prefix: The prefix parameter is an optional string that can be added to the directory
-        path. It is used to create a subdirectory within the main directory specified by the dir
-        parameter. If no prefix is provided, the function will simply create the directory specified by
-        the dir parameter
-        :return: the directory path that was created or already existed.
+        :param dir: The "dir" parameter is a string that represents the directory path where you want to
+        check if a directory exists or create a new directory
+        :type dir: str
+        :param prefix: The "prefix" parameter is a string that is added to the directory path before
+        checking if it exists. It is optional and its default value is an empty string
+        :type prefix: str
+        :return: the directory path.
         """
         dir_path = os.path.join(dir, prefix)
         if not os.path.exists(dir_path):
@@ -30,14 +32,14 @@ class Crawler:
         
 
     @staticmethod
-    def file_exists(file):
+    def file_exists(file: str) -> str:
         """
-        This is a static method in Python that checks if a file exists and raises an error if it
-        doesn't.
+        The `file_exists` function checks if a file exists and returns the file name if it does,
+        otherwise it raises a `FileNotFoundError` with an error message.
         
-        :param file: The parameter "file" is a string representing the file path of the file being
-        checked for existence
-        :return: the input file if it exists.
+        :param file: The `file` parameter is a string that represents the file path or file name
+        :type file: str
+        :return: The file path is being returned.
         """
         if not os.path.isfile(file):
             raise FileNotFoundError("Error: Input file does not exist. Please provide an existing file.")

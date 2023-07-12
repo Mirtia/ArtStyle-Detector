@@ -7,11 +7,11 @@ import os
 # given directory. Not sure if this will be needed, it was just cool to try out.
 class ImageUpscaler:
 
-    def __init__(self, input_dir):
+    def __init__(self, input_dir: str):
       self.input_dir = input_dir
       self.model = self.initialize_model()
 
-    def initialize_model(self):
+    def initialize_model(self) -> RealESRGAN:
         """
         The function initializes a RealESRGAN model and loads pre-trained weights.
         :return: an instance of the RealESRGAN model that has been initialized and loaded with

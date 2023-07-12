@@ -15,7 +15,7 @@ class WikimediaCrawler(Crawler):
 
     url = "https://commons.wikimedia.org/w/api.php"
 
-    def __init__(self, input_file, output_dir, prefix):
+    def __init__(self, input_file: str, output_dir: str, prefix: str):
         super().__init__(input_file, output_dir, prefix)
         self.session = requests.Session()
         self.read_input_file()
@@ -62,7 +62,7 @@ class WikimediaCrawler(Crawler):
         with open(self.input_file, mode="r", encoding="utf-8") as f:
             self.categories = f.read().split("\n")[:-1]
 
-    async def download_image(self, url, title, output_dir):
+    async def download_image(self, url: str, title: str, output_dir: str):
         """
         This is an async function that downloads an image from a given URL and saves it to a specified
         output directory.

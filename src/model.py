@@ -10,7 +10,7 @@ class StyleModel:
     TRAIN_SET_SIZE = 1000
     TEST_SET_SIZE = 500
 
-    def __init__(self, input_dir, output_dir, skip=True):
+    def __init__(self, input_dir: str, output_dir: str, skip: bool=True):
         self.input_dir = input_dir
         self.output_dir = output_dir
         if not skip:
@@ -61,13 +61,15 @@ class StyleModel:
         self.model_trainer.setDataDirectory(self.output_dir)
         self.model_trainer.trainModel(num_experiments=100, batch_size=32)
 
-    def __get_paths(self, path):
+    def __get_paths(self, path: str) -> tuple:
         """
-        The function "__get_paths" takes a path as input and returns the paths of a model file and a JSON
-        file within that path.
+        The function `__get_paths` takes a directory path as input and returns the paths of a model file
+        and a JSON file within that directory.
         
-        :param path: The `path` parameter is the directory path where the files are located
-        :return: two variables: model_path and json_path.
+        :param path: The `path` parameter is a string that represents the directory path where the files
+        are located
+        :type path: str
+        :return: a tuple containing the paths of the model file and the JSON file.
         """
         model_path, json_path = None, None
         if os.path.isdir(path):
@@ -81,7 +83,7 @@ class StyleModel:
         return model_path, json_path
 
 
-    def classify(self, input_img):
+    def classify(self, input_img: str):
         """
         The `classify` function uses a pre-trained ResNet50 model to classify an input image and prints
         the top 10 predictions along with their probabilities.
