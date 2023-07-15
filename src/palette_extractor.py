@@ -83,7 +83,7 @@ def plot_colors(hex_list: list, dominant_color: tuple, side: int, output:str):
     matplotlib.pyplot.tight_layout()
 
     os.makedirs(output, exist_ok=True)
-    matplotlib.pyplot.savefig(os.path.join(output, rgb_to_hex(dominant_color) + ".jpg" ))
+    matplotlib.pyplot.savefig(os.path.join(output, rgb_to_hex(dominant_color) + ".jpg"))
     matplotlib.pyplot.show()
 
 # Still not sure how to use this code, may `sort` images by their color scheme
