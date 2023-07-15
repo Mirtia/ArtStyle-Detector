@@ -5,11 +5,12 @@ The following are the list of the sources I *used* or at least tried to use to g
 
 ## Example
 
-<div style="display: flex; align-items: flex-start;">
-  <img src="tests/monet_impressionism.jpg" alt="image" style="height: 382px; margin-right: 10px;">
-  <div>
-    <pre>
-    <code class="language-shell">
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <img src="tests/monet_impressionism.jpg" alt="image" style="height: 382px; margin-right: 10px;">
+  </div>
+  <div style="flex: 1;">
+    <pre><code class="language-shell">
 # i : input image, o : model path
 python src/main.py -i tests/monet_impressionism.jpg -o styles/
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
