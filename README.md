@@ -5,12 +5,10 @@ The following are the list of the sources I *used* or at least tried to use to g
 
 ## Example
 
-<div style="display: flex;">
-  <div style="flex: 1;">
-    <img src="tests/monet_impressionism.jpg" alt="image" style="height: 382px; margin-right: 10px;">
-  </div>
-  <div style="flex: 1;">
-    <pre><code class="language-shell">
+<table>
+  <tr>
+    <td valign="top"> <img src="tests/monet_impressionism.jpg" alt="image" style="height: 362px; margin-right: 10px;">
+    <td valign="top">    <pre><code class="language-shell">
 # i : input image, o : model path
 python src/main.py -i tests/monet_impressionism.jpg -o styles/
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -27,9 +25,10 @@ romanticism : 0.2878
 surrealism : 0.153
 abstract_expressionism : 0.0682
 ============================================================
-    </code></pre>
-  </div>
-</div>
+    </code></pre></td>
+  </tr>
+</table>
+
 
 
 ## Google Images
