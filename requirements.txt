@@ -4,7 +4,6 @@ Google_Images_Search==1.4.6
 imageai==3.0.3
 Pillow==9.5.0
 python-dotenv==1.0.0
-RealESRGAN==1.0
-RealESRGAN==0.3.0
+RealESRGAN==1.
 Requests==2.31.0
 torch==2.0.1+cu118
